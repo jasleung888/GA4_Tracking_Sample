@@ -3,34 +3,52 @@
 <head>
     <title>Yanlan's Website</title>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0DGEQ5T4L3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0DGEQ5T4L3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-  gtag('config', 'G-0DGEQ5T4L3');
-</script>
+        gtag('config', 'G-0DGEQ5T4L3');
+    </script>
+
+    <!-- Define the trackAddToCart() function -->
+    <script>
+        function trackAddToCart(productName) {
+            gtag('event', 'add_to_cart', {
+                'item_name': productName
+            });
+        }
+
+        // Function to handle adding a product to the cart and display a success message
+        function addProductToCart(productName) {
+            // Track the "add_to_cart" event
+            trackAddToCart(productName);
+
+            // Display a success message in a pop-up
+            alert('You have added this product successfully to your cart!');
+        }
+    </script>
 </head>
 <body>
     <h1>Welcome to My Sample Website</h1>
-    
+    <p>  </p>
     <div class="product">
         <h2>Product A</h2>
         <p>Description of Product A.</p>
-        <button onclick="addProductToCart('Product A', 'A001')">Add to Cart</button>
+        <button onclick="addProductToCart('Product A')">Add to Cart</button>
     </div>
     
     <div class="product">
         <h2>Product B</h2>
         <p>Description of Product B.</p>
-        <button onclick="addProductToCart('Product B', 'B002')">Add to Cart</button>
+        <button onclick="addProductToCart('Product B')">Add to Cart</button>
     </div>
     
     <div class="product">
         <h2>Product C</h2>
         <p>Description of Product C.</p>
-        <button onclick="addProductToCart('Product C', 'C003')">Add to Cart</button>
+        <button onclick="addProductToCart('Product C')">Add to Cart</button>
     </div>
 </body>
 </html>
